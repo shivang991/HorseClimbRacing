@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtpyi545kdk2v"]
+
+[ext_resource type="PackedScene" uid="uid://cfnolag5qcd03" path="res://scenes/player.tscn" id="1_fn3d0"]
+
+[node name="LevelMtFuji" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_fn3d0")]
+
+[node name="CSGRoot" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -5.2026)
+use_collision = true
+size = Vector3(5, 0.2, 21.127)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(0.850132, 0, 0.52657, 0, 1, 0, -0.52657, 0, 0.850132, -2.18912, 0.638892, -19.081)
+use_collision = true
+size = Vector3(6.97314, 1.56508, 11.7124)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(0.97535, 0, -0.220663, 0, 1, 0, 0.220663, 0, 0.97535, 3.45361, 0.638892, -35.3718)
+use_collision = true
+size = Vector3(6.97314, 1.56508, 32.926)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(0.402092, 0, 0.915599, 0, 1, 0, -0.915599, 0, 0.402092, -20.7472, 1.38954, -28.6505)
+use_collision = true
+size = Vector3(6.97314, 3.29994, 35.854)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(0.402092, 0, 0.915599, 0, 1, 0, -0.915599, 0, 0.402092, -55.6935, 1.38954, -46.2292)
+use_collision = true
+size = Vector3(25.1554, 3.29994, 35.854)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.785803, 0.481996, -0.387548, 0.618477, -0.612397, 0.492398, 0, -0.626617, -0.779327, 0, 9.63052, 0)
+shadow_enabled = true
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1397, 0, -11.5603)
+use_collision = true
+radius = 9.92911
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8827, 5.45246, 1.98146)
+use_collision = true
+radius = 13.6972
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3877, 1.40178, -9.55333)
+use_collision = true
+radius = 13.6972
