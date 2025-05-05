@@ -363,6 +363,7 @@ skin = SubResource("Skin_7mee8")
 libraries = {
 "": SubResource("AnimationLibrary_i52l4")
 }
+speed_scale = -1.0
 
 [node name="CameraTTPPivot" type="Node3D" parent="."]
 
