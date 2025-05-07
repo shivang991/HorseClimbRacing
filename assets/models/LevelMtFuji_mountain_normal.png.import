@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://blcp8bpy3h7yb"
+path.s3tc="res://.godot/imported/LevelMtFuji_mountain_normal.png-561c3473fe4e975de85480e4a45ec210.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "fc08d39f0605e4d6860f92d281685a72"
+}
+
+[deps]
+
+source_file="res://assets/models/LevelMtFuji_mountain_normal.png"
+dest_files=["res://.godot/imported/LevelMtFuji_mountain_normal.png-561c3473fe4e975de85480e4a45ec210.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://assets/models/LevelMtFuji_mountain_normal.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

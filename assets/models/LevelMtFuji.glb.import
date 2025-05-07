@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://8h7j6x5s0mt6"
-path="res://.godot/imported/horse.glb-b058c7a163b8b3351d26de174e85f30c.scn"
+uid="uid://dn7d8tyvxn4m"
+path="res://.godot/imported/LevelMtFuji.glb-c7139722bda2adc60f93c938f782c540.scn"
 
 [deps]
 
-source_file="res://assets/models/horse.glb"
-dest_files=["res://.godot/imported/horse.glb-b058c7a163b8b3351d26de174e85f30c.scn"]
+source_file="res://assets/models/LevelMtFuji.glb"
+dest_files=["res://.godot/imported/LevelMtFuji.glb-c7139722bda2adc60f93c938f782c540.scn"]
 
 [params]
 

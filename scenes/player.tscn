@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://cfnolag5qcd03"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_jkabc"]
+[ext_resource type="Script" uid="uid://nlw7myug7rl2" path="res://scripts/player.gd" id="1_jkabc"]
 [ext_resource type="Texture2D" uid="uid://cqbec1bqxg83g" path="res://assets/models/horse_horse_baked.png" id="2_77kqx"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_os5tn"]
@@ -223,8 +223,8 @@ tracks/8/keys = PackedFloat32Array(0, 1, -0.265406, 0, 0, 0.964137, 0.0333333, 1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i52l4"]
 _data = {
-"rigAction": SubResource("Animation_r5rsw"),
-"walk": SubResource("Animation_6pvaw")
+&"rigAction": SubResource("Animation_r5rsw"),
+&"walk": SubResource("Animation_6pvaw")
 }
 
 [node name="Player" type="CharacterBody3D"]

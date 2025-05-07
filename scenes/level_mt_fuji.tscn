@@ -1,43 +1,217 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtpyi545kdk2v"]
+[gd_scene load_steps=5 format=3 uid="uid://dtpyi545kdk2v"]
 
 [ext_resource type="PackedScene" uid="uid://cfnolag5qcd03" path="res://scenes/player.tscn" id="1_fn3d0"]
+[ext_resource type="PackedScene" uid="uid://dn7d8tyvxn4m" path="res://assets/models/LevelMtFuji.glb" id="2_75jq2"]
+
+[sub_resource type="Curve3D" id="Curve3D_h0b26"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -3.03189, -6.91054, -29.2565, 0, 0, 0, 0, 0, 0, 53.9773, 12.5959, -74.1263, 0, 0, 0, 0, 0, 0, -32.276, 34.5876, -146.277, 0, 0, 0, 0, 0, 0, 37.275, 44.8816, -180.166),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_fw6jh"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 593.152, 325.298, 389.539, 0, 0, 0, 0, 0, 0, 446.34, 370.836, 421.393, 0, 0, 0, 0, 0, 0, 362.139, 430.558, 516.671, 0, 0, 0, 0, 0, 0, 277.05, 506.78, 387.222, 0, 0, 0, 0, 0, 0, 82.0545, 540.811, 537.668, 0, 0, 0, 0, 0, 0, -24.4496, 559.949, 528.33, 0, 0, 0, 0, 0, 0, -107.288, 638.294, 401.04, 0, 0, 0, 0, 0, 0, -278.844, 713.109, 542.13, 0, 0, 0, 0, 0, 0, -208.625, 733.706, 620.56, 0, 0, 0, 0, 0, 0, -352.514, 767.971, 751.043, 0, 0, 0, 0, 0, 0, -235.657, 839.856, 908.924, 0, 0, 0, 0, 0, 0, -68.2607, 923.26, 837.569, 0, 0, 0, 0, 0, 0, 121.917, 909.865, 1011.54, 0, 0, 0, 0, 0, 0, 326.847, 1006.47, 1222.24, 0, 0, 0, 0, 0, 0, 500.871, 1016.36, 1120.49, 0, 0, 0, 0, 0, 0, 561.281, 1034.78, 1260.5, 0, 0, 0, 0, 0, 0, 789.966, 1062.06, 1473.53, 0, 0, 0, 0, 0, 0, 956.218, 1093.1, 1226.31, 0, 0, 0, 0, 0, 0, 1118.29, 1119.14, 1075.13, 0, 0, 0, 0, 0, 0, 1550.26, 1142.39, 1294.28, 0, 0, 0, 0, 0, 0, 1598.67, 1161.25, 1103.55),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 21
 
 [node name="LevelMtFuji" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_fn3d0")]
 
+[node name="LevelMtFuji" parent="." instance=ExtResource("2_75jq2")]
+
 [node name="CSGRoot" type="Node3D" parent="."]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGRoot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.680859, -9.05)
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="CSGRoot"]
 use_collision = true
-size = Vector3(5, 1.36172, 28.8218)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGRoot"]
-transform = Transform3D(0.988103, 0.0479518, 0.14613, 0, 0.950152, -0.311788, -0.153796, 0.308078, 0.938847, -3.86554, 6.27187, -49.1168)
+[node name="CSGBox3D18" type="CSGBox3D" parent="CSGRoot/CSGCombiner3D"]
+transform = Transform3D(-0.37332, 0.0257921, -0.927344, -0.282542, 0.948965, 0.140136, 0.88363, 0.31433, -0.34698, 610.981, 306.839, 443.788)
 use_collision = true
-size = Vector3(3.04932, 1.36172, 63.9251)
+size = Vector3(115.485, 5.66558, 88.0239)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGRoot"]
-transform = Transform3D(0.92949, -0.098134, -0.355553, -0.001846, 0.962708, -0.270537, 0.368842, 0.252118, 0.894646, 14.6556, 8.16198, -61.9299)
-use_collision = true
-size = Vector3(3.04932, 1.36172, 90.5675)
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGRoot/CSGCombiner3D"]
+transform = Transform3D(1, -5.96046e-08, 1.86265e-08, 7.37496e-08, 0.959942, -0.280197, 1.0378e-07, 0.280198, 0.959942, 606.518, 296.92, 436.025)
+operation = 2
+radius = 51.2033
+height = 60.0159
+smooth_faces = false
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGRoot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1397, 0, -11.5603)
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.992541, -1.14929e-05, -0.121909, 0.0313658, 0.966311, -0.255462, 0.117805, -0.257379, -0.959102, -148.066, 135.17, 224.378)
 use_collision = true
-radius = 9.92911
+size = Vector3(0.565893, 1.1044, 321.905)
 
-[node name="CSGSphere3D2" type="CSGSphere3D" parent="CSGRoot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8827, 5.45246, 1.98146)
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.993409, 0.048728, -0.103752, 0.0941616, 0.863066, -0.496238, 0.065364, -0.502737, -0.861965, -121.731, 210.827, 436.458)
 use_collision = true
-radius = 13.6972
+size = Vector3(0.6, 5.666, 171.656)
 
-[node name="CSGSphere3D3" type="CSGSphere3D" parent="CSGRoot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3877, 1.40178, -9.55333)
+[node name="CSGBox3D12" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.13965, 0.240093, -0.960653, 0.0390891, 0.970741, 0.236931, 0.989429, -0.00446373, -0.144948, -81.7281, 245.722, 524.061)
 use_collision = true
-radius = 13.6972
+size = Vector3(19.0989, 5.66558, 75.9851)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.134837, -0.138106, -0.981196, -0.0140438, 0.990407, -0.137474, 0.990768, -0.00475679, -0.135483, 285.561, 290.126, 583.061)
+use_collision = true
+size = Vector3(0.6, 5.666, 723.6)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.460156, 0.00824892, -0.8878, 0.00566953, 0.999965, 0.00635166, 0.88782, -0.00211036, -0.460186, 786.023, 339.288, 696.166)
+use_collision = true
+size = Vector3(40.7149, 5.66558, 330.016)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.418942, 0.109009, -0.901445, 0.175862, 0.983711, 0.0372256, 0.89082, -0.142934, -0.431289, -127.754, 32.599, 193.3)
+use_collision = true
+size = Vector3(0.5, 171.495, 87.0889)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.434826, 0.00712372, -0.900486, 0.131783, 0.989707, -0.0558063, 0.89082, -0.142934, -0.431289, -71.3706, 27.7271, 215.964)
+use_collision = true
+size = Vector3(2, 179.338, 14.0715)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.443023, -0.0625528, -0.894325, 0.100851, 0.987754, -0.119047, 0.89082, -0.142934, -0.431289, -52.5706, 34.8938, 220.892)
+use_collision = true
+size = Vector3(2, 167.823, 11.1452)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.443023, -0.0625528, -0.894325, 0.100851, 0.987754, -0.119047, 0.89082, -0.142934, -0.431289, -40.8304, 36.8645, 226.872)
+use_collision = true
+size = Vector3(2, 167.677, 11.1452)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.434826, 0.00712372, -0.900486, 0.131783, 0.989707, -0.0558063, 0.89082, -0.142934, -0.431289, -4.47609, 36.5848, 242.385)
+use_collision = true
+size = Vector3(2, 179.338, 14.0715)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.452432, -0.154974, -0.87823, 0.0785587, 0.974032, -0.21235, 0.888332, -0.165066, -0.428509, 22.934, 46.1888, 249.209)
+use_collision = true
+size = Vector3(2, 167.823, 11.1452)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.454284, -0.263206, -0.851086, 0.00813154, 0.954093, -0.299402, 0.89082, -0.142934, -0.431289, 44.349, 52.6299, 250.702)
+use_collision = true
+size = Vector3(2, 167.677, 11.1452)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.454284, -0.263206, -0.851086, 0.00813154, 0.954093, -0.299402, 0.89082, -0.142934, -0.431289, 56.5874, 62.703, 255.605)
+use_collision = true
+size = Vector3(2, 155.499, 11.1452)
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.458716, -0.361879, -0.811555, -0.0211076, 0.917496, -0.397188, 0.888332, -0.165066, -0.428509, 57.0468, 120.387, 254.952)
+use_collision = true
+size = Vector3(2, 47.3958, 11.1452)
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.33744, -0.398627, -0.852778, -0.0504223, 0.912267, -0.406482, 0.939996, -0.0941641, -0.327935, 70.5144, 126.458, 260.179)
+use_collision = true
+size = Vector3(2, 48.899, 11.1452)
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.286296, -0.403122, -0.86921, -0.0504223, 0.912267, -0.406482, 0.956814, -0.0725464, -0.281505, 84.3871, 134.697, 264.878)
+use_collision = true
+size = Vector3(2, 44.3091, 13.4067)
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.281598, -0.424344, -0.860601, -0.0405057, 0.901356, -0.431184, 0.958677, -0.0865609, -0.271009, 99.7128, 138.804, 268.005)
+use_collision = true
+size = Vector3(2, 47.3958, 13.43)
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.449011, -0.42212, -0.787529, -0.0694908, 0.895201, -0.440212, 0.89082, -0.142934, -0.431289, 112.939, 146.009, 274.72)
+use_collision = true
+size = Vector3(2, 48.899, 14.4666)
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.449011, -0.42212, -0.787529, -0.0694908, 0.895201, -0.440212, 0.89082, -0.142934, -0.431289, 132.903, 158.422, 283.884)
+use_collision = true
+size = Vector3(2, 44.3091, 31.7113)
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.452052, -0.150331, -0.879232, -0.0231999, 0.987345, -0.156888, 0.89169, -0.050523, -0.44982, 160.72, 165.836, 299.854)
+use_collision = true
+size = Vector3(2, 47.3958, 40.2142)
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.242753, -0.162869, -0.956318, -0.0466624, 0.986625, -0.156186, 0.968966, 0.00670968, -0.247106, 207.587, 174.141, 315.703)
+use_collision = true
+size = Vector3(2, 45.9363, 47.1187)
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.288885, -0.129184, -0.948607, -0.0648561, 0.991219, -0.115236, 0.955165, 0.0282331, -0.294727, 254.181, 183.658, 328.952)
+use_collision = true
+size = Vector3(2, 39.7732, 38.3963)
+
+[node name="CSGBox3D33" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.448368, -0.234914, -0.862427, -0.0620959, 0.970703, -0.232124, 0.89169, -0.050523, -0.44982, 299.507, 188.557, 347.929)
+use_collision = true
+size = Vector3(2, 44.0457, 42.4294)
+
+[node name="Path3D" type="Path3D" parent="CSGRoot"]
+transform = Transform3D(-0.287097, -0.154966, -0.945283, -0.0723609, 0.987517, -0.139913, 0.955164, 0.0282332, -0.294727, 402.378, 239.096, 380.24)
+curve = SubResource("Curve3D_h0b26")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGRoot"]
+use_collision = true
+polygon = PackedVector2Array(-0.813215, -2.06653, -0.524909, 0.930641, 0.958315, 0.879041, 1.50384, -2.08854)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="CSGBox3D34" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.232326, -0.316763, -0.919611, -0.084444, 0.948481, -0.305373, 0.968966, 0.00670968, -0.247106, 347.239, 199.188, 364.22)
+use_collision = true
+size = Vector3(2, 47.5833, 46.9293)
+
+[node name="CSGBox3D35" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.287097, -0.154966, -0.945283, -0.0723609, 0.987517, -0.139913, 0.955164, 0.0282331, -0.294727, 402.378, 210.696, 380.24)
+use_collision = true
+size = Vector3(2, 44.3091, 65.7751)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.509871, 0.00231915, -0.860248, 0.175376, 0.979276, -0.101306, 0.842185, -0.20252, -0.49971, -24.2161, 120.944, 224.558)
+use_collision = true
+size = Vector3(14.2591, 5.66558, 22.8012)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGRoot"]
+transform = Transform3D(-0.992541, -1.14937e-05, -0.121909, -0.025121, 0.978558, 0.204433, 0.119293, 0.205972, -0.97126, 1595.65, 1157.55, 1075.35)
+use_collision = true
+size = Vector3(88.0601, 5.66558, 83.32)
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="CSGRoot"]
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 1, 1.3245, 0.975924, 1.4872, 0.00917578)
+mode = 2
+path_node = NodePath("../Path3D2")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Path3D2" type="Path3D" parent="CSGRoot"]
+transform = Transform3D(1, 0, 0, 0, 0.999982, 0.00602135, 0, -0.00602135, 0.999982, 0, 0, 0)
+curve = SubResource("Curve3D_fw6jh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.785803, 0.481996, -0.387548, 0.618477, -0.612397, 0.492398, 0, -0.626617, -0.779327, 0, 9.63052, 0)
-shadow_enabled = true
+transform = Transform3D(0.267404, -0.0942538, 0.958964, -0.752934, 0.600613, 0.268987, -0.601318, -0.793965, 0.0896401, 0, 9.63052, 0)
