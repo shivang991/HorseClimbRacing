@@ -11,13 +11,21 @@ config_version=5
 [application]
 
 config/name="HorseClimbRacing"
-run/main_scene="res://scenes/level_mt_fuji.tscn"
+run/main_scene="uid://dp6taviwa32p2"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
 window/stretch/aspect="ignore"
+
+[global_group]
+
+player=""
+
+[gui]
+
+theme/custom="uid://be5uwtx6ii2g5"
 
 [input]
 
@@ -58,5 +66,5 @@ move_sprint={
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.583294, 0.494394, 0.459831, 1)

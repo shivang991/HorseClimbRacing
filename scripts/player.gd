@@ -5,13 +5,14 @@ const SPEED_RUN = 16
 const JUMP_VELOCITY = 8
 
 const MOUSE_SENSTIVITY_X = 0.008
+const MOUSE_SENSTIVITY_Y = 0.001
 
 const CAMERA_LERP_SPEED = 10
 const PIVOT_LERP_SPEED = 25
 
 # Camera rotation lerping
 var camera_lerp_weight := 0.0
-var is_lerping_camera = false
+var is_camera_lerping = false
 var camera_lerp_init_rot: Quaternion
 var camera_lerp_targ_rot: Quaternion
 
@@ -45,15 +46,16 @@ func _physics_process(delta: float) -> void:
 			pivot_lerp_weight = 1
 			is_pivot_lerping = false
 		$Pivot.basis = Basis(pivot_lerp_init_rot.slerp(pivot_lerp_targ_rot, pivot_lerp_weight))
-		$HoriseCollision.basis = $Pivot.basis
-		$HoriseCollision.rotate_y(PI)
+		$HorseCollision.basis = $Pivot.basis
+		$HorseCollision.rotate_y(PI)
 
-	if is_lerping_camera:
+
+	if is_camera_lerping:
 		camera_lerp_weight = camera_lerp_weight + delta * CAMERA_LERP_SPEED
 		if camera_lerp_weight > 1:
 			camera_lerp_weight = 1
-			is_lerping_camera = false
-		
+			is_camera_lerping = false
+
 		$CameraTTPPivot.basis = Basis(camera_lerp_init_rot.slerp(camera_lerp_targ_rot, camera_lerp_weight))
 
 	var speed := SPEED_WALK
@@ -91,13 +93,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		var ang: float = -event.relative.x * MOUSE_SENSTIVITY_X
 		$CameraTTPPivot.rotate_y(ang)
 		$Pivot.rotate_y(ang)
-		$HoriseCollision.rotate_y(ang)
+		$HorseCollision.rotate_y(ang)
 
 	if event is InputEventKey:
 		if not Input.is_action_just_pressed("camera_recenter"):
 			return
 
 		camera_lerp_weight = 0
-		is_lerping_camera = true
+		is_camera_lerping = true
 		camera_lerp_init_rot = $CameraTTPPivot.quaternion
 		camera_lerp_targ_rot = $Pivot.quaternion

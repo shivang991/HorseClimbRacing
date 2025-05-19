@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://nlw7myug7rl2" path="res://scripts/player.gd" id="1_jkabc"]
 [ext_resource type="Texture2D" uid="uid://cqbec1bqxg83g" path="res://assets/models/horse_horse_baked.png" id="2_77kqx"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_os5tn"]
-points = PackedVector3Array(-0.170675, 0, -0.73673, 0.17063, 0, -0.73673, -0.170763, 0, -0.644863, -0.226915, 0.850574, 0.178669, -0.197995, 1.00357, -0.678752, -0.162101, 0.610264, -0.735913, -0.0937777, 0.00113891, -0.73673, 0.0937333, 0.00113891, -0.73673, 0.162056, 0.610264, -0.735913, 0.19795, 1.00357, -0.678752, 0.226915, 0.850574, 0.178669, 0.170719, 0, -0.644863, -0.126473, 0, 0.477949, -0.197995, 1.41965, -0.647313, -0.170941, 0.423863, 0.455493, -0.153305, 0.949469, 0.678422, -0.0570396, 1.93918, 1.03078, 0.19795, 1.41965, -0.647313, 0.0569952, 1.93918, 1.03078, 0.153261, 0.949469, 0.678422, 0.170897, 0.423863, 0.455493, 0.126429, 0, 0.477949, -0.111591, 0, 0.583493, -0.0209234, 1.65217, 1.34884, 0.020879, 1.65217, 1.34884, 0.111547, 0, 0.583493, -0.0218119, 1.46995, 1.2829, 0.0217674, 1.46995, 1.2829)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g2els"]
+points = PackedVector3Array(0.127317, 1.84613, 1.20761, -0.196153, 0.120619, -0.805405, 0.235179, -0.0232754, -0.73356, -0.160258, -0.0232754, 0.704247, -0.268121, 1.41445, -0.302263, 0.185467, 1.35372, -0.629993, 0.199225, -0.0232754, 0.668212, -0.124304, 2.06187, 1.13554, 0.307088, 1.23483, -0.374108, -0.0523354, 1.48629, 1.42338, -0.232107, -0.0232754, 0.596366, -0.0155887, 1.36281, -0.757634, 0.127317, 2.06187, 1.0637, -0.304075, 1.23483, -0.338073, -0.232107, -0.0232754, -0.73356, 0.0554079, 0.767839, -0.877476, 0.233433, 1.0811, 0.551145, 0.0913622, 1.48629, 1.38734, -0.160258, 1.70224, 1.0637, -0.185276, 1.29106, -0.678176, -0.0487969, 1.4556, -0.600288, -0.304075, 0.91153, -0.445953, 0.307088, 0.947452, -0.374108, -0.232927, 1.08176, 0.554151, 0.199225, 0.264514, -0.805405, -0.0882897, 1.63039, 1.38734, -0.0523354, 0.767839, -0.877476, 0.163271, -0.0232754, 0.704247, -0.124304, 2.06187, 1.0637, 0.271134, 1.41445, -0.302263, 0.127317, 2.06187, 1.13554, 0.0517934, 1.45498, -0.599038)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kftp6"]
 resource_name = "Horse_026A"
@@ -227,12 +227,12 @@ _data = {
 &"walk": SubResource("Animation_6pvaw")
 }
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_jkabc")
 
-[node name="HoriseCollision" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_os5tn")
+[node name="HorseCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_g2els")
 
 [node name="Pivot" type="Node3D" parent="."]
 
@@ -361,7 +361,7 @@ skin = SubResource("Skin_7mee8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot/HorseModel"]
 libraries = {
-"": SubResource("AnimationLibrary_i52l4")
+&"": SubResource("AnimationLibrary_i52l4")
 }
 speed_scale = -1.0
 
