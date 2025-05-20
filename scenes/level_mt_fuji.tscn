@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtpyi545kdk2v"]
+[gd_scene load_steps=12 format=3 uid="uid://dtpyi545kdk2v"]
 
 [ext_resource type="Script" uid="uid://cb85s0bb821pq" path="res://scenes/level_mt_fuji.gd" id="1_1tm6a"]
 [ext_resource type="PackedScene" uid="uid://cfnolag5qcd03" path="res://scenes/player.tscn" id="1_fn3d0"]
 [ext_resource type="PackedScene" uid="uid://dn7d8tyvxn4m" path="res://assets/models/LevelMtFuji.glb" id="2_75jq2"]
+[ext_resource type="Theme" uid="uid://be5uwtx6ii2g5" path="res://themes/default.tres" id="4_rllhi"]
 
 [sub_resource type="Curve3D" id="Curve3D_h0b26"]
 _data = {
@@ -273,4 +274,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="ButtonContainer" type="BoxContainer" parent="GameOverScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RestartButton" type="Button" parent="GameOverScreen/ButtonContainer"]
+layout_mode = 2
+theme = ExtResource("4_rllhi")
+text = "Restart"
+
 [connection signal="body_entered" from="DeathRegion" to="." method="_on_death_region_body_entered"]
+[connection signal="pressed" from="GameOverScreen/ButtonContainer/RestartButton" to="." method="_on_restart_button_pressed"]
