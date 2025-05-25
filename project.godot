@@ -63,8 +63,3 @@ move_sprint={
 [physics]
 
 3d/physics_engine="Jolt Physics"
-
-[rendering]
-
-textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0.583294, 0.494394, 0.459831, 1)
