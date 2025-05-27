@@ -9,9 +9,12 @@ points = PackedVector3Array(0.127317, 1.84613, 1.20761, -0.196153, 0.120619, -0.
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kftp6"]
 resource_name = "Horse_026A"
 cull_mode = 2
-shading_mode = 0
-vertex_color_use_as_albedo = true
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 2
 albedo_texture = ExtResource("2_77kqx")
+ao_enabled = true
+disable_receive_shadows = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ny60v"]
 resource_name = "horse_Horse_026A_002"

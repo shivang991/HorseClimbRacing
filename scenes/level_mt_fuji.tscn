@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dtpyi545kdk2v"]
+[gd_scene load_steps=18 format=3 uid="uid://dtpyi545kdk2v"]
 
 [ext_resource type="Script" uid="uid://cb85s0bb821pq" path="res://scenes/level_mt_fuji.gd" id="1_1tm6a"]
 [ext_resource type="PackedScene" uid="uid://cfnolag5qcd03" path="res://scenes/player.tscn" id="1_fn3d0"]
 [ext_resource type="PackedScene" uid="uid://dn7d8tyvxn4m" path="res://assets/models/LevelMtFuji.glb" id="2_75jq2"]
 [ext_resource type="Theme" uid="uid://be5uwtx6ii2g5" path="res://themes/default.tres" id="4_rllhi"]
+[ext_resource type="Texture2D" uid="uid://dbbxy0u2ko60a" path="res://assets/hdris/sky.exr" id="5_qoafq"]
 
 [sub_resource type="Curve3D" id="Curve3D_h0b26"]
 _data = {
@@ -20,7 +21,7 @@ _data = {
 point_count = 21
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_75jq2"]
-size = Vector3(83.7156, 36.7422, 57.6328)
+size = Vector3(83.7156, 36.7422, 137.744)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1tm6a"]
 size = Vector3(185.059, 41.4849, 120.127)
@@ -34,13 +35,31 @@ size = Vector3(196.176, 61.1713, 104.97)
 [sub_resource type="BoxShape3D" id="BoxShape3D_u6h03"]
 size = Vector3(262.209, 61.1713, 104.97)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ime40"]
+size = Vector3(332, 308.091, 545.659)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_u6h03"]
+panorama = ExtResource("5_qoafq")
+
+[sub_resource type="Sky" id="Sky_ime40"]
+sky_material = SubResource("PanoramaSkyMaterial_u6h03")
+
 [sub_resource type="Environment" id="Environment_rllhi"]
+background_mode = 2
+sky = SubResource("Sky_ime40")
+reflected_light_source = 1
 fog_enabled = true
-fog_mode = 1
-fog_light_energy = 0.65
-fog_sun_scatter = 0.06
-fog_density = 1.0
-fog_depth_end = 256.5
+fog_light_energy = 2.0
+fog_density = 0.05
+fog_aerial_perspective = 0.07
+fog_height_density = 0.18
+adjustment_enabled = true
+adjustment_brightness = 0.62
+adjustment_contrast = 1.03
+adjustment_saturation = 1.25
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_rllhi"]
+auto_exposure_scale = 0.96
 
 [node name="LevelMtFuji" type="Node3D"]
 script = ExtResource("1_1tm6a")
@@ -251,7 +270,7 @@ shadow_blur = 0.25
 [node name="DeathRegion" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathRegion"]
-transform = Transform3D(1, 0, 0, 0, 0.992071, -0.12568, 0, 0.12568, 0.992071, -3.2843, -22.7941, -11.5981)
+transform = Transform3D(1, 0, 0, 0, 0.992071, -0.12568, 0, 0.12568, 0.992071, -3.2843, -27.8283, 28.14)
 shape = SubResource("BoxShape3D_75jq2")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="DeathRegion"]
@@ -269,6 +288,10 @@ shape = SubResource("BoxShape3D_qoafq")
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="DeathRegion"]
 transform = Transform3D(0.0108535, -0.0719434, 0.99735, -0.257005, 0.963701, 0.0723128, -0.966349, -0.257109, -0.00803044, -162.143, 99.749, 288.24)
 shape = SubResource("BoxShape3D_u6h03")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="DeathRegion"]
+transform = Transform3D(-0.00590685, -0.00903015, 0.999942, -0.257166, 0.96634, 0.00720739, -0.966349, -0.257109, -0.00803044, 155.917, -41.0541, 329.782)
+shape = SubResource("BoxShape3D_ime40")
 
 [node name="GameOverScreen" type="Control" parent="."]
 layout_mode = 3
@@ -304,6 +327,7 @@ text = "Restart"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rllhi")
+camera_attributes = SubResource("CameraAttributesPhysical_rllhi")
 
 [connection signal="body_entered" from="DeathRegion" to="." method="_on_death_region_body_entered"]
 [connection signal="pressed" from="GameOverScreen/ButtonContainer/RestartButton" to="." method="_on_restart_button_pressed"]

@@ -10,6 +10,11 @@ const MOUSE_SENSTIVITY_Y = 0.001
 const CAMERA_LERP_SPEED = 10
 const PIVOT_LERP_SPEED = 25
 
+
+var is_dead = false
+
+const horse_broken_scene = preload("res://scenes/horse_broken.tscn")
+
 # Camera rotation lerping
 var camera_lerp_weight := 0.0
 var is_camera_lerping = false
@@ -26,6 +31,9 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		return
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -89,6 +97,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if is_dead: return
+
 	if event is InputEventMouseMotion:
 		var ang: float = -event.relative.x * MOUSE_SENSTIVITY_X
 		$CameraTTPPivot.rotate_y(ang)
@@ -103,3 +113,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		is_camera_lerping = true
 		camera_lerp_init_rot = $CameraTTPPivot.quaternion
 		camera_lerp_targ_rot = $Pivot.quaternion
+
+func die():
+	is_dead = true
+	$Pivot.visible = false
+
+	var horse_broken := horse_broken_scene.instantiate()
+	add_child(horse_broken)
